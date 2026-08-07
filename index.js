@@ -5,7 +5,7 @@ import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 
-const DEFAULT_MODEL = 'gemini-1.5-flash';
+const DEFAULT_MODEL = 'models/gemini-1.5-flash';
 const DEFAULT_TEMPERATURE = 0.1;
 
 async function getDiff(octokit, context) {
@@ -91,6 +91,11 @@ async function run() {
         }
 
         core.info(`Content length to review: ${contentToReview.length} characters.`);
+
+        if (contentToReview.length > 1000000) {
+            core.warning('Content is too large (>1MB). Gemini might struggle or hit limits. Truncating to 1MB.');
+            contentToReview = contentToReview.substring(0, 1000000);
+        }
 
         const genAI = new GoogleGenerativeAI(apiKey);
         
