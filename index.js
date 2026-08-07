@@ -5,7 +5,7 @@ import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 
-const DEFAULT_MODEL = 'models/gemini-1.5-flash';
+const DEFAULT_MODEL = 'gemini-1.5-flash';
 const DEFAULT_TEMPERATURE = 0.1;
 
 async function getDiff(octokit, context) {
