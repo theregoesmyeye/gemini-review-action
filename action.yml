@@ -1,0 +1,32 @@
+name: 'Gemini Smart Review'
+description: 'AI-powered code reviews using Google Gemini'
+author: 'Manus AI'
+inputs:
+  geminiApiKey:
+    description: 'The Google Gemini API key'
+    required: true
+  githubToken:
+    description: 'The GitHub token'
+    required: true
+    default: ${{ github.token }}
+  model:
+    description: 'The Gemini model to use (e.g., gemini-1.5-flash, gemini-1.5-pro)'
+    required: false
+    default: 'gemini-1.5-flash'
+  temperature:
+    description: 'The model temperature'
+    required: false
+    default: '0.1'
+  systemMessage:
+    description: 'Custom system message to guide the review focus'
+    required: false
+  debug:
+    description: 'Enable debug logging'
+    required: false
+    default: 'false'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+branding:
+  icon: 'eye'
+  color: 'blue'
