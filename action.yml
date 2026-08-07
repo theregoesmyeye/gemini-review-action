@@ -24,6 +24,13 @@ inputs:
     description: 'Enable debug logging'
     required: false
     default: 'false'
+  mode:
+    description: 'Review mode: "auto" (detects event), "diff" (forced diff), or "full" (forced full codebase review)'
+    required: false
+    default: 'auto'
+outputs:
+  review:
+    description: 'The generated review text'
 runs:
   using: 'node20'
   main: 'dist/index.js'
