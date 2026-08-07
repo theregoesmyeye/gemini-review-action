@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Gemini Code Review
-        uses: YOUR_USERNAME/gemini-review-action@main
+        uses: theregoesmyeye/gemini-review-action@main
         with:
           geminiApiKey: ${{ secrets.GEMINI_API_KEY }}
           # githubToken is automatically provided
